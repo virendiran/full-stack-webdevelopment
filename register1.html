@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #191a19;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-image: url('wp8904202.webp');
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1, h2, h3 {
+            color: #fff;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        input[type="reset"],
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type="reset"]:hover,
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Random Crafts ACADEMY 🚀</h1>
+        <h2>Training | Tech news | Guide</h2>
+        <h3>Empowering young developers to develop their skills through corporate training</h3>
+    </center>
+    <hr>
+    <center>
+        <h1>Registration Form</h1>
+        <form id="registrationForm">
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" id="name" placeholder="Enter your name" required></td>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td><input type="number" id="age" placeholder="Enter your age" min="1" required></td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <input type="radio" name="gender" id="male" value="Male" required> Male
+                        <input type="radio" name="gender" id="female" value="Female" required> Female
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" id="email" placeholder="Enter your email" required></td>
+                </tr>
+                <tr>
+                    <td>Select a Course:</td>
+                    <td>
+                        <select id="course" required>
+                            <option value="" disabled selected>Select a course</option>
+                            <option value="Java programming">Java Programming</option>
+                            <option value="Python programming">Python Programming</option>
+                            <option value="C++">C++</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Upload your resume</td>
+                    <td><input type="file" id="resume" accept=".pdf, .doc, .docx" required></td>
+                </tr>
+                <tr>
+                    <td><input type="reset" value="Reset"></td>
+                    <td><input type="submit" value="Submit"></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+    <hr>
+    <center>
+        <p>
+            <a href="index1.html">Home</a> | <a href="https://www.instagram.com/virendiran/">Instagram</a> | <a href="https://www.youtube.com/@virendiranr982">YouTube</a>
+        </p>
+    </center>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const email = document.getElementById('email').value;
+            const course = document.getElementById('course').value;
+            const resume = document.getElementById('resume').files.length;
+
+            if (!gender) {
+                alert('Please select your gender.');
+                return;
+            }
+
+            if (name === '' || age === '' || email === '' || course === '' || resume === 0) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            if (isNaN(age) || age <= 0) {
+                alert('Please enter a valid age.');
+                return;
+            }
+
+            alert('Registration successful!');
+            window.location.href = 'success.html';
+        });
+    </script>
+</body>
+</html>
